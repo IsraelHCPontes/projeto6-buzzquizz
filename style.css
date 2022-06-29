@@ -84,9 +84,9 @@ input {
     cursor: pointer;
 }
 
-.primeiraParte {
+/* .primeiraParte {
     display: none;
-}
+} */
 
 .segundaParte {
     width: 100%;
@@ -116,7 +116,7 @@ input {
     font-weight: 700;
 }
 
-.caixa1 {
+.caixa1, .caixa2, .caixa3 {
     width: 600px;
     height: 825px;
     margin-top: 20px;
@@ -137,6 +137,22 @@ input {
     margin-bottom: 15px;
 }
 
+.pergunta01 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pergunta01 > img {
+    width: 26px;
+    height: 23px;
+}
+
+.texto00 {
+    margin-top: 15px;
+}
+
 .botao2 {
     background: #EC362D;
     width: 369px;
@@ -149,3 +165,7 @@ input {
     color: #FFF5F4;
     margin-bottom: 50px;
 }
+
+/* .segundaParte{
+    display: none;
+} */
