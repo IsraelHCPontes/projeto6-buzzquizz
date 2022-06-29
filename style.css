@@ -126,7 +126,15 @@ input {
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    padding: 15px 0px;
+    padding: 0 20px;
+}
+
+h1 {
+    line-height: 45px;
+}
+
+input {
+    margin-bottom: 15px;
 }
 
 .botao2 {
