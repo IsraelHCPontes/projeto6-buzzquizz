@@ -84,10 +84,6 @@ input {
     cursor: pointer;
 }
 
-/* .primeiraParte {
-    display: none;
-} */
-
 .segundaParte {
     width: 100%;
     height: 100%;
@@ -166,6 +162,41 @@ input {
     margin-bottom: 50px;
 }
 
-/* .segundaParte{
+.invisivel {
     display: none;
-} */
+}
+
+.quartaParte {
+    margin-top: 140px;
+    margin-bottom: 71px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.titulo4 {
+    font-size: 23px;
+    font-weight: 700;
+}
+
+.botao4, .botao5 {
+    width: 221px;
+    height: 44px;
+    border-radius: 15px;
+    border: 0;
+    font-size: 21px;
+    font-weight: 400;
+}
+
+.botao4 {
+    background: #EC362D;
+    color: #FFF5F4;
+    margin-top: 40px;
+    margin-bottom: 5px;
+}
+
+.botao5 {
+    background: #e5e5e5;
+    color: #818181;
+}
