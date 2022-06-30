@@ -128,7 +128,9 @@ input {
     margin-bottom: 15px;
 }
 
-.pergunta01 {
+.pergunta01,
+.pergunta02,
+.pergunta03 {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -140,7 +142,12 @@ input {
     height: 23px;
 }
 
-.texto00 {
+.respostaIncorreta2, 
+.respostaIncorreta3,
+.respostaIncorreta02,
+.respostaIncorreta03,
+.respostaIncorreta002,
+.respostaIncorreta003 {
     margin-top: 15px;
 }
 
@@ -197,20 +204,6 @@ input {
     .barraTopo {
         width: 100%;
         height: 69px;
-    }
-
-    .primeiraParte, .segundaParte, .quartaParte {
-        width: 100%;
-
-    }
-
-    .informacaoDoQuiz, .caixa1 {
-        width: 414px;
-    }
-
-    input {
-        width: 300px;
-        margin: 0 1px;
     }
 
     .quizz > h2 {
