@@ -50,11 +50,12 @@ botao_criar_niveis.addEventListener("click", crie_perguntas_quizz)
 //scripts israel a baixo
 
 //função slide niveis 
-botao_criar_Nivel.addEventListener("click", info_basica_Nivel)
+//botao_criar_Nivel.addEventListener("click", info_basica_Nivel)
+botao_criar_pergunta.addEventListener("click", renderizaNivel)
 function editaNivel(elemento){
     elemento.parentNode.classList.toggle('toggleNivel')
     elemento.parentNode.querySelector('.caixaNivel').classList.toggle('opacidade')
-    elemento.parentNode.querySelector('.buttonEditar').classList.toggle('desligado')
+    elemento.parentNode.querySelector('.buttonEditar').classList.toggle('invisivel')
     nivel = elemento.parentNode.querySelector('h1').innerHTML
    }
    
