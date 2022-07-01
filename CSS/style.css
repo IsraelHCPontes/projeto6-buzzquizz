@@ -21,6 +21,7 @@ body {
 
     position: fixed;
     top: 0;
+    z-index: 1;
 }
 
 .primeiraParte {
@@ -140,15 +141,6 @@ input {
 .pergunta01 > img {
     width: 26px;
     height: 23px;
-}
-
-.respostaIncorreta2, 
-.respostaIncorreta3,
-.respostaIncorreta02,
-.respostaIncorreta03,
-.respostaIncorreta002,
-.respostaIncorreta003 {
-    margin-top: 15px;
 }
 
 .botao2 {
@@ -292,16 +284,18 @@ input {
 }
 
 .quizz {
+    width: 500px;
+    height: 266px;
     margin-top: 40px;
     font-size: 23px;
     color: white;
+    position: relative;
 }
 
-.quizz > h2 {
+.quizz h2 {
     position: absolute;
-    top: 420px;
-    left: 450px;
-    z-index: 1;
+    top: 210px;
+    left: 20px;
 }
 
 .botao4, .botao5 {
@@ -333,7 +327,7 @@ input {
     opacity: 1;
 }
 
-.invisivel {
+.desligado {
     display: none;
 }
 
