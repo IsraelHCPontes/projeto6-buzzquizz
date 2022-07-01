@@ -5,15 +5,19 @@
     align-items: center;
 }
 
-.criarQuiz {
+.criarQuiz, .seusQuizzes {
     width: 1051px;
     height: 181px;
     margin-top: 146px;
-    border: 1px dashed #D4D4D4;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.criarQuiz {
+    border: 2px dashed #D4D4D4;
+    border-radius: 5px;
 }
 
 .descricao {
@@ -29,11 +33,46 @@
 .botaoCriarQuizz {
     width: 151px;
     height: 40px;
-    border: 1px dashed #EC362D;
+    border: 2px dashed #EC362D;
     background: #E5E5E5;
     border-radius: 50px;
     color: #EC362D;
     font-size: 21px;
+}
+
+.titulosSeusQuizzes {
+    display: flex;
+}
+
+.titulosSeusQuizzes h1 {
+    width: 25px;
+    height: 25px;
+    font-size: 20px;
+    font-weight:  400;
+    border-radius: 50%;
+    background: #EC362D;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 20px;
+}
+
+.minhaGaleria {
+    width: 1052px;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    color: white;
+    font-size: 19px;
+    font-weight: 400;
+}
+
+.minhaGaleria img {
+    width: 340px;
+    height: 181px;
+    border-radius: 5px;
+    margin-right: 15px;
 }
 
 .todosOsQuizzes {
@@ -44,7 +83,7 @@
     flex-direction: column;
 }
 
-.tituloQuizzes {
+.titulosSeusQuizzes, .tituloQuizzes {
     font-size: 20px;
     font-weight: 700;
     margin-bottom: 10px;
@@ -109,4 +148,8 @@
     position: absolute;
     top: 740px;
     left: 880px;
+}
+
+.invisivel {
+    display: none;
 }
