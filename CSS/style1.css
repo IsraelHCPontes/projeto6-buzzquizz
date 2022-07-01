@@ -1,3 +1,112 @@
+.primeiraTela {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .criarQuiz {
-    border: 1px solid gray;
+    width: 1051px;
+    height: 181px;
+    margin-top: 146px;
+    border: 1px dashed #D4D4D4;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.descricao {
+    width: 200px;
+    height: 80px;
+    color: #B9B9B9;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    line-height: 23px;
+}
+
+.botaoCriarQuizz {
+    width: 151px;
+    height: 40px;
+    border: 1px dashed #EC362D;
+    background: #E5E5E5;
+    border-radius: 50px;
+    color: #EC362D;
+    font-size: 21px;
+}
+
+.todosOsQuizzes {
+    width: 1052px;
+    height: 100%;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+.tituloQuizzes {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.galeria {
+    width: 1052px;
+    height: 370px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.galeria  img {
+    width: 340px;
+    height: 181px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.galeria p {
+    width: 301px;
+    height: 54px;
+    color: white;
+    font-size: 19px;
+    font-weight: 400;
+    line-height: 23px;
+}
+
+.quiz1 p {
+    position: absolute;
+    top: 530px;
+    left: 170px;
+}
+
+.quiz2 p {
+    position: absolute;
+    top: 545px;
+    left: 525px;
+}
+
+.quiz3 p {
+    position: absolute;
+    top: 530px;
+    left: 880px;
+}
+
+.quiz4 p {
+    position: absolute;
+    top: 740px;
+    left: 170px;
+}
+
+.quiz5 p {
+    position: absolute;
+    top: 726px;
+    left: 525px;
+}
+
+.quiz6 p {
+    position: absolute;
+    top: 740px;
+    left: 880px;
 }
