@@ -1,45 +1,61 @@
-   
-   let botao_criar_pergunta = document.querySelector(".primeiraParte").querySelector("button") 
-   
-   let botao_criar_niveis;
-   
-   function info_basica_quizz() {
-   
-           const titulo = document.querySelector(".informacaoDoQuiz").querySelector(".tituloQuiz").value
-           const caracteres = titulo.split("")
-           
-           const quant_niveis = document.querySelector(".informacaoDoQuiz").querySelector(".nivelQuiz").value
-           
-           const input_url = document.querySelector(".informacaoDoQuiz").querySelector(".imagemQuiz").value
-           
-           const quant_perg = document.querySelector(".informacaoDoQuiz").querySelector(".perguntasQuiz").value
-           
-   
-           if(caracteres.length < 20 || caracteres.length > 65 || quant_perg < 3 || quant_niveis < 2){
-               alert("preencher os dados corretamente.")
-           }
-           try {
-               let url = new URL(input_url)
-             } catch(err) {
-                 alert("A URL da imagem esta incorreta")
-           }
-   }
-   
-   function perguntas_quizz(){
-   
-   }
-   
-   botao_criar_pergunta.addEventListener("click", info_basica_quizz)
-   botao_criar_Nivel.addEventListener("click", info_basica_Nivel)
 
+//scripts thiago a baixo
+
+let botao_criar_pergunta = document.querySelector(".primeiraParte").querySelector("button") 
+   
+let botao_criar_niveis = document.querySelector(".segundaParte").querySelector("button")
+   
+function info_basica_quizz() {
+   
+    const titulo_info_basica_quizz = document.querySelector(".informacaoDoQuiz").querySelector(".tituloQuiz").value
+    const caracteres = titulo_info_basica_quizz.split("")
+           
+    const quant_niveis = document.querySelector(".informacaoDoQuiz").querySelector(".nivelQuiz").value
+        
+    const input_url = document.querySelector(".informacaoDoQuiz").querySelector(".imagemQuiz").value
+           
+    const quant_perg = document.querySelector(".informacaoDoQuiz").querySelector(".perguntasQuiz").value
+           
+   
+    if(caracteres.length < 20 || caracteres.length > 65 || quant_perg < 3 || quant_niveis < 2){
+        alert("preencher os dados corretamente.")
+    }
+
+    try {
+        let url = new URL(input_url)
+    } catch(err) {
+        alert("A URL da imagem esta incorreta")
+    }
+}
+
+botao_criar_pergunta.addEventListener("click", info_basica_quizz)
+
+
+/* tela Crie suas perguntas */
+
+function crie_perguntas_quizz(){
+    const titulo_crie_perguntas_quizz = document.querySelector(".segundaParte ").querySelector(".").value
+}
+   
+
+botao_criar_niveis.addEventListener("click", crie_perguntas_quizz)
+
+
+/* tela Crie suas perguntas */
+
+
+
+/****************************************************************************************************/
 
 //scripts israel a baixo
 
 //função slide niveis 
+//botao_criar_Nivel.addEventListener("click", info_basica_Nivel)
+botao_criar_pergunta.addEventListener("click", renderizaNivel)
 function editaNivel(elemento){
     elemento.parentNode.classList.toggle('toggleNivel')
     elemento.parentNode.querySelector('.caixaNivel').classList.toggle('opacidade')
-    elemento.parentNode.querySelector('.buttonEditar').classList.toggle('desligado')
+    elemento.parentNode.querySelector('.buttonEditar').classList.toggle('invisivel')
     nivel = elemento.parentNode.querySelector('h1').innerHTML
    }
    
