@@ -5,7 +5,7 @@
     align-items: center;
 }
 
-.criarQuiz, .seusQuizzes {
+.criarQuiz {
     width: 1051px;
     height: 181px;
     margin-top: 146px;
@@ -41,6 +41,7 @@
 }
 
 .titulosSeusQuizzes {
+    width: 250px;
     display: flex;
 }
 
@@ -59,7 +60,7 @@
 }
 
 .minhaGaleria {
-    width: 1052px;
+    width: 100%;
     height: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -75,12 +76,26 @@
     margin-right: 15px;
 }
 
-.todosOsQuizzes {
+.meuQuiz1, .meuQuiz2 {
+    position: relative;
+}
+
+.meuQuiz1 p, .meuQuiz2 p {
+    position: absolute;
+    bottom: 20px;
+    left: 15px;
+}
+
+.todosOsQuizzes, .seusQuizzes {
     width: 1052px;
     height: 100%;
     margin-top: 50px;
     display: flex;
     flex-direction: column;
+}
+
+.seusQuizzes {
+    margin-top: 150px;
 }
 
 .titulosSeusQuizzes, .tituloQuizzes {
@@ -90,8 +105,8 @@
 }
 
 .galeria {
-    width: 1052px;
-    height: 370px;
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
@@ -114,42 +129,23 @@
     line-height: 23px;
 }
 
-.quiz1 p {
-    position: absolute;
-    top: 530px;
-    left: 170px;
+.quiz1, .quiz2, .quiz3, .quiz4, .quiz5, .quiz6 {
+    position: relative;
 }
 
-.quiz2 p {
+.quiz1 p, .quiz3 p, .quiz5 p {
     position: absolute;
-    top: 545px;
-    left: 525px;
+    bottom: 18px;
+    left: 20px;
 }
 
-.quiz3 p {
+.quiz2 p, .quiz4 p, .quiz6 p {
     position: absolute;
-    top: 530px;
-    left: 880px;
+    bottom: 5px;
+    left: 20px;
 }
 
-.quiz4 p {
-    position: absolute;
-    top: 740px;
-    left: 170px;
-}
 
-.quiz5 p {
-    position: absolute;
-    top: 726px;
-    left: 525px;
-}
-
-.quiz6 p {
-    position: absolute;
-    top: 740px;
-    left: 880px;
-}
-
-.invisivel {
+.desligado {
     display: none;
 }
