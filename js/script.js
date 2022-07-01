@@ -35,6 +35,11 @@ botao_criar_pergunta.addEventListener("click", info_basica_quizz)
 
 function crie_perguntas_quizz(){
     /*validação do título */
+    
+    const titulo_perguntas = document.querySelectorAll("")
+
+
+    /*
     const titulo_pergunta1 = document.querySelector(".segundaParte ").querySelector(".textoDaPergunta1").value
 
     const caracteres1 = titulo_pergunta1.split("")
@@ -52,7 +57,7 @@ function crie_perguntas_quizz(){
     const caracteres3 = titulo_pergunta3.split("")
     if(caracteres3.length < 20){
         alert("preencher os dados corretamente.")
-    }
+    }*/
 
     /*validação do título */
 
