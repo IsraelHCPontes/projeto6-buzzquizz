@@ -66,8 +66,8 @@ botao_criar_niveis.addEventListener("click", crie_perguntas_quizz)
 
 //função slide niveis 
 //botao_criar_Nivel.addEventListener("click", info_basica_Nivel)
-botao_criar_pergunta.addEventListener("click", renderizaNivel)
-function editaNivel(elemento){
+
+function editaNivel(elemento) {
     elemento.parentNode.classList.toggle('toggleNivel')
     elemento.parentNode.querySelector('.caixaNivel').classList.toggle('opacidade')
     elemento.parentNode.querySelector('.buttonEditar').classList.toggle('invisivel')
