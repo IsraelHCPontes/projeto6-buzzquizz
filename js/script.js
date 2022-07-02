@@ -57,6 +57,9 @@ botao_criar_niveis.addEventListener("click", crie_perguntas_quizz)
 
 
 
+
+
+
 /****************************************************************************************************/
 
 //scripts israel a baixo
