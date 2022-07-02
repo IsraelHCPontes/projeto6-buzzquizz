@@ -71,8 +71,8 @@ function editaNivel(elemento){
     elemento.parentNode.classList.toggle('toggleNivel')
     elemento.parentNode.querySelector('.caixaNivel').classList.toggle('opacidade')
     elemento.parentNode.querySelector('.buttonEditar').classList.toggle('invisivel')
-    nivel = elemento.parentNode.querySelector('h1').innerHTML
-   }
+    
+}
    
    // função cria quantidade de niveis passadas 
    function renderizaNivel(elemento){
@@ -115,9 +115,10 @@ function editaNivel(elemento){
    }
    
    //tratamento de paramentros 
-   let botao_criar_Nivel = document.querySelector(".terceiraParte").querySelector(".botaoNivel") 
-   function info_basica_Nivel() {
-   
+let botao_finalizar_quizz = document.querySelector(".terceiraParte").querySelector(".botaoNivel") 
+
+function info_basica_Nivel() {
+    /*
      const titulo = document.querySelector(".terceiraParte").querySelector(".tituloNivel").value
      const caracteres = titulo.split("")
            
@@ -135,6 +136,9 @@ function editaNivel(elemento){
       let url = new URL(url_niveis)
         } catch(err) {
         alert("A URL da imagem esta incorreta")
-        }
-   }
-   
+        }*/
+
+    console.log("foi!!")
+}
+
+botao_finalizar_quizz.addEventListener("click", info_basica_Nivel)
