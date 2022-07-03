@@ -193,7 +193,13 @@ input {
     color: #818181;
 }
 
+.botaoCriarQuizz {
+    cursor: pointer;
+}
+
 /*css israel abaixo*/
+
+
 
 .terceiraParte {
     margin-top: 140px;

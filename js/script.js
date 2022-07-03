@@ -2,13 +2,17 @@
  
 let quantidadeNivel
 
-//scripts thiago a baixo
-
 let botao_criar_pergunta = document.querySelector(".primeiraParte").querySelector("button") 
    
 let botao_criar_niveis = document.querySelector(".segundaParte").querySelector("button")
-   
-function info_basica_quizz() {
+
+let botao_voltar_home = document.querySelector(".quartaParte").querySelector(".botao5") 
+
+let botao_criar_quizz = document.querySelector(".primeiraTela").querySelector(".botaoCriarQuizz") 
+
+//scripts thiago a baixo
+
+/*function info_basica_quizz() {
    
     const titulo_info_basica_quizz = document.querySelector(".informacaoDoQuiz").querySelector(".tituloQuiz").value
     const caracteres = titulo_info_basica_quizz.split("")
@@ -29,15 +33,12 @@ function info_basica_quizz() {
     } catch(err) {
         alert("A URL da imagem esta incorreta")
     }
-}
-
-botao_criar_pergunta.addEventListener("click", info_basica_quizz)
-
+}*/
 
 /* tela Crie suas perguntas */
 
-function crie_perguntas_quizz(){
-    /*validação do título */
+/*function crie_perguntas_quizz(){
+    /*validação do título 
     
     const titulo_perguntas = document.querySelectorAll(".textoDaPergunta")
     for(let i = 0; i < titulo_perguntas.length; i++){
@@ -50,11 +51,8 @@ function crie_perguntas_quizz(){
 
   // validação do título  
 
-}
+}*/
    
-
-
-
 
 /* tela Crie suas perguntas */
 
@@ -79,6 +77,8 @@ function editaPergunta(elemento) {
 
 //funcao renderiza perguntas
 function  renderizaPergunta(){
+    document.querySelector('.primeiraParte').classList.add('desligado')
+    document.querySelector('.segundaParte').classList.remove('desligado')
     quantidadeNivel = document.querySelector('.nivelQuiz').value
     console.log(quantidadeNivel)
     quantidadePergunta = document.querySelector('.perguntasQuiz').value
@@ -156,11 +156,13 @@ function  renderizaPergunta(){
         document.querySelector('.perguntas').innerHTML += template_caixaPergunta
     }
 }
- //botao 1 ativa redenre perguntas       
+ //botao 1 ativa redenriza perguntas       
  botao_criar_pergunta.addEventListener("click", renderizaPergunta)
 
-//funcao renderiza perguntas
+//funcao renderiza niveis
 function renderizaNivel() {
+    document.querySelector('.segundaParte').classList.add('desligado')
+    document.querySelector('.terceiraParte').classList.remove('desligado')
     document.querySelector('.niveis').innerHTML = ""
     console.log("passou pro render nivel")
     console.log(quantidadeNivel)
@@ -204,13 +206,12 @@ function renderizaNivel() {
 botao_criar_niveis.addEventListener("click", renderizaNivel)
 
 
-// função cria quantidade de niveis passadas 
-
-
-//tratamento de paramentros 
 
 let botao_finalizar_quizz = document.querySelector(".terceiraParte .botaoNivel")
+//tratamento de paramentros 
 function info_basica_Nivel() {
+    document.querySelector('.terceiraParte').classList.add('desligado')
+    document.querySelector('.quartaParte').classList.remove('desligado')
     console.log(quantidadeNivel)
     titulo = document.querySelectorAll(".terceiraParte .tituloNivel")
     url = document.querySelectorAll(".terceiraParte .urlNivel")
@@ -232,4 +233,16 @@ function info_basica_Nivel() {
 botao_finalizar_quizz.addEventListener("click", info_basica_Nivel)
    
 
- 
+function voltar_home(){
+    document.querySelector('.quartaParte').classList.add('desligado')
+    document.querySelector('.primeiraTela').classList.remove('desligado')
+}
+botao_voltar_home.addEventListener("click", voltar_home)
+
+
+function cria_quizzes(){
+    document.querySelector('.primeiraTela').classList.add('desligado')
+    document.querySelector('.primeiraParte').classList.remove('desligado')
+}
+
+botao_criar_quizz.addEventListener("click", cria_quizzes)
