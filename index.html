@@ -20,8 +20,6 @@
 
     <div class="barraTopo">BuzzQuizz</div>
           <!--Fecha caixa barra Topo-->
-
-
           <div class="primeiraTela">
 
             <div class="criarQuiz">
@@ -140,13 +138,14 @@
                 <div class="titulo2">
                     Crie suas perguntas
                 </div>
-                <div class="perguntas">
-                    <div class="caixa1 desligado">
-                        <div class="pergunta1">
-                            <div class="pergunta01">
-                            <h1>Pergunta 1</h1>
-                            <img src="./images/img1.svg"/>
-                            </div>
+                <div class="perguntas toggle">
+                    <div class="topCaixas" onclick="editaNivel(this)" > </div>
+                    <h1>Pergunta 1</h1>
+                    <img src="./images/img1.svg"/>
+                    <div class="pergunta1 desligado">
+                            
+                          
+                            
                             <!--Fecha caixa pergunta 01-->
                             <input
                                 class="textoDaPergunta"
@@ -158,10 +157,11 @@
                                 type="text"
                                 placeholder="Cor de fundo da pergunta"
                             />
-                        </div>
+                         </div>
+                    </div>
                         <!--Fecha caixa pergunta 1-->
 
-                        <div class="respostaCorreta">
+                        <div class="respostaCorreta desligado">
                             <h1>Resposta Correta</h1>
                             <input
                                 class="RespostaCorreta"
@@ -175,7 +175,7 @@
                             />
                         </div>
                         <!--Fecha caixa Resposta Correta-->
-                        <div class="respostasIncorretas">
+                        <div class="respostasIncorretas desligado">
                             <h1>Respostas incorretas</h1>
                             <input
                                 class="respostaIncorreta"
@@ -209,7 +209,7 @@
                             />
                         </div>
                         <!--Fecha caixa Respostas Incorretas-->
-                    </div>
+                 
                     <!--Fecha caixa caixa 1-->
 
                     <div class="caixa2 desligado">

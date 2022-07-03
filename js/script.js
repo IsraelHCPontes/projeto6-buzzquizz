@@ -70,7 +70,13 @@ botao_criar_niveis.addEventListener("click", crie_perguntas_quizz)
 function editaNivel(elemento) {
     elemento.parentNode.classList.toggle('toggleNivel')
     elemento.parentNode.querySelector('.caixaNivel').classList.toggle('opacidade')
-    elemento.parentNode.querySelector('.buttonEditar').classList.toggle('invisivel')
+    elemento.parentNode.querySelector('.buttonEditar').classList.toggle('desligado')
+}
+
+function editaPergunta(elemento) {
+    elemento.parentNode.classList.toggle('toggleNivel')
+    elemento.parentNode.querySelector('.caixaNivel').classList.toggle('opacidade')
+    elemento.parentNode.querySelector('.buttonEditar').classList.toggle('desligado')
 }
 
 let botao_criar_Pergunta = document.querySelector(".prmeiraParte .botao1")
@@ -82,7 +88,8 @@ function  renderizaPergunta(){
         newPergunta = i + 1
         template_caixaPergunta = ` 
         <div class="caixa1">
-        <div class="pergunta1">
+        <div class="topCaixas" onclick="editaNivel(this)" ></div>
+        <div class="pergunta1 ">
             <div class="pergunta01">
             <h1>Pergunta ${newPergunta}</h1>
             <img src="./images/img1.svg"/>
@@ -170,7 +177,7 @@ function renderizaNivel(elemento) {
     for(let i = 0; i < quantidadeNivel; i++){   
        newNivel = i + 1
        template_caixaNivel = ` 
-           <div class="container toggleNivel">
+           <div class="container toggle">
                        <div class="topCaixas" onclick="editaNivel(this)" ></div>
                        <img class="buttonEditar" src="./images/img1.svg">
                        <h1>Nível ${newNivel}</h1>
