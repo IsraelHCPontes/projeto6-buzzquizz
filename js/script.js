@@ -68,14 +68,14 @@ botao_criar_niveis.addEventListener("click", crie_perguntas_quizz)
 //botao_criar_Nivel.addEventListener("click", info_basica_Nivel)
 
 function editaNivel(elemento) {
-    elemento.parentNode.classList.toggle('toggleNivel')
+    elemento.parentNode.classList.toggle('toggle')
     elemento.parentNode.querySelector('.caixaNivel').classList.toggle('opacidade')
     elemento.parentNode.querySelector('.buttonEditar').classList.toggle('desligado')
 }
 
 function editaPergunta(elemento) {
-    elemento.parentNode.classList.toggle('toggleNivel')
-    elemento.parentNode.querySelector('.caixaNivel').classList.toggle('opacidade')
+    elemento.parentNode.classList.toggle('toggle')
+    elemento.parentNode.querySelector('.pergunta1').classList.toggle('opacidade')
     elemento.parentNode.querySelector('.buttonEditar').classList.toggle('desligado')
 }
 
@@ -87,13 +87,11 @@ function  renderizaPergunta(){
     for (let i = 0; i < quantidadePergunta; i++) {
         newPergunta = i + 1
         template_caixaPergunta = ` 
-        <div class="caixa1">
-        <div class="topCaixas" onclick="editaNivel(this)" ></div>
-        <div class="pergunta1 ">
-            <div class="pergunta01">
-            <h1>Pergunta ${newPergunta}</h1>
-            <img src="./images/img1.svg"/>
-            </div>
+        <div class="containerPerguntas toggle">
+        <div class="topCaixas" onclick="editaPergunta(this)" > </div>
+        <h1 class="numeroPergunta">Pergunta ${newPergunta}</h1>
+        <img class="buttonEditar" src="./images/img1.svg"/>
+        <div class="pergunta1">
             <!--Fecha caixa pergunta 01-->
             <input
                 class="textoDaPergunta"
@@ -105,60 +103,57 @@ function  renderizaPergunta(){
                 type="text"
                 placeholder="Cor de fundo da pergunta"
             />
+         <!--Fecha caixa pergunta 1-->
+            <div class="respostaCorreta ">
+                <h1>Resposta Correta</h1>
+                <input
+                    class="RespostaCorreta"
+                    type="text"
+                    placeholder="Resposta Correta"
+                />
+                <input
+                    class="urlDaImagem"
+                    type="text"
+                    placeholder="URL da imagem"
+                />
+            </div>
+            <!--Fecha caixa Resposta Correta-->
+            <div class="respostasIncorretas ">
+                <h1>Respostas incorretas</h1>
+                <input
+                    class="respostaIncorreta"
+                    type="text"
+                    placeholder="Resposta incorreta 1"
+                />
+                <input
+                    class="urlDaImagem"
+                    type="text"
+                    placeholder="URL da imagem 1"
+                />
+                <input
+                    class="respostaIncorreta"
+                    type="text"
+                    placeholder="Resposta incorreta 2"
+                />
+                <input
+                    class="urlDaImagem"
+                    type="text"
+                    placeholder="URL da imagem 2"
+                />
+                <input
+                    class="respostaIncorreta"
+                    type="text"
+                    placeholder="Resposta incorreta 3"
+                />
+                <input
+                    class="urlDaImagem"
+                    type="text"
+                    placeholder="URL da imagem 3"
+                />
+            </div>
+            <!--Fecha caixa Respostas Incorretas-->
         </div>
-        <!--Fecha caixa pergunta 1-->
-
-        <div class="respostaCorreta">
-            <h1>Resposta Correta</h1>
-            <input
-                class="RespostaCorreta"
-                type="text"
-                placeholder="Resposta Correta"
-            />
-            <input
-                class="urlDaImagem"
-                type="text"
-                placeholder="URL da imagem"
-            />
-        </div>
-        <!--Fecha caixa Resposta Correta-->
-        <div class="respostasIncorretas">
-            <h1>Respostas incorretas</h1>
-            <input
-                class="respostaIncorreta"
-                type="text"
-                placeholder="Resposta incorreta 1"
-            />
-            <input
-                class="urlDaImagem"
-                type="text"
-                placeholder="URL da imagem 1"
-            />
-            <input
-                class="respostaIncorreta"
-                type="text"
-                placeholder="Resposta incorreta 2"
-            />
-            <input
-                class="urlDaImagem"
-                type="text"
-                placeholder="URL da imagem 2"
-            />
-            <input
-                class="respostaIncorreta"
-                type="text"
-                placeholder="Resposta incorreta 3"
-            />
-            <input
-                class="urlDaImagem"
-                type="text"
-                placeholder="URL da imagem 3"
-            />
-        </div>
-        <!--Fecha caixa Respostas Incorretas-->
-    </div>
-    <!--Fecha caixa caixa 1-->
-                   `
+    </div>`
         document.querySelector('.perguntas').innerHTML += template_caixaPergunta
     }
 }
