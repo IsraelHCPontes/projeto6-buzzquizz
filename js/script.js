@@ -10,6 +10,107 @@ let botao_voltar_home = document.querySelector(".quartaParte").querySelector(".b
 
 let botao_criar_quizz = document.querySelector(".primeiraTela").querySelector(".botaoCriarQuizz") 
 
+
+function enviaQuizz(){
+    let titulo, cor_de_fundo, resposta_correta, url_img, resposta_incorreta
+    const caixa1 = document.querySelectorAll(".caixa1")
+    const obj = {
+        title: document.querySelector(".tituloQuiz").value,
+        image: document.querySelector(".imagemQuiz").value,
+        questions:[],
+        levels:[]
+    }
+    for(let i = 0; i < caixa1.length; i++){
+        const element = caixa1[i]
+        const texto_pergunta = element.querySelector(".textoDaPergunta").value
+        const cor_fundo = element.querySelector(".corDoFundo").value
+        const resp_correta = element.querySelector(".RespostaCorreta").value
+        const url_img_correta = element.querySelector(".urlDaImagemCorreta").value
+        const obj_pergunta = {
+            title: texto_pergunta,
+			color: cor_fundo,
+            answers: [
+				{
+					text: resp_correta,
+					image: url_img_correta,
+					isCorrectAnswer: true
+				},
+			]
+        }
+
+        const texto_resp_incorretas = element.querySelectorAll(".respostaIncorreta")
+        const url_resp_incorretas = element.querySelectorAll(".urlDaImagem")
+        for(let i = 0; i <texto_resp_incorretas.length; i++){
+            const texto_resp_incorreta = texto_resp_incorretas[i].value
+            const url_resp_incorreta = url_resp_incorretas[i].value
+
+            const obj_resp = {
+                text: texto_resp_incorreta,
+                image: url_resp_incorreta,
+                isCorrectAnswer: false
+            }
+            obj_pergunta.answers.push(obj_resp)
+        }
+        obj.questions.push(obj_pergunta)
+
+    }
+    const niveis = document.querySelectorAll(".caixaNivel")
+    for(let i = 0; i < niveis.length; i++){
+        const element = niveis[i]
+        const titulo_nivel = element.querySelector(".tituloNivel").value
+        const porcentagem_acerto = element.querySelector(".porcentagemAcerto").value
+        const url_nivel = element.querySelector(".urlNivel").value
+        const descricao_nivel = element.querySelector(".descricaoNivel").value
+        
+        const obj_nivel = {
+            title: titulo_nivel,
+			image: url_nivel,
+			text: descricao_nivel,
+			minValue: Number(porcentagem_acerto)
+        }
+        obj.levels.push(obj_nivel)
+    }
+
+    /*pegar os titulos das perguntas */
+    //console.log(obj)
+
+    const promessa = axios.post("https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes", obj)
+    promessa.then((res)=>{
+        const quizes_usuarios = JSON.parse(localStorage.getItem("quizes_usuarios"))
+        if(quizes_usuarios){
+            localStorage.setItem("quizes_usuarios", JSON.stringify([res.data.id, ...quizes_usuarios]))
+        }else{
+            localStorage.setItem("quizes_usuarios", JSON.stringify([res.data.id]))
+        }
+        
+    })
+    
+}
+
+/*função para enviar o quiz pro servidor */
+
+function atualizar_seus_quizes(){
+    let minha_galeria = document.querySelector(".minhaGaleria")
+    const quizes_usuarios = JSON.parse(localStorage.getItem("quizes_usuarios"))
+    for(let i = 0; i < quizes_usuarios.length; i++){
+        //console.log(quizes_usuarios[i])
+        const promessa = axios.get(`https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes/${quizes_usuarios[i]}`)
+        promessa.then((res)=>{
+            // console.log(`id:${quizes_usuarios[i]}`)
+            // console.log(res.data.title)
+            // console.log(res.data.image)
+            // console.log("****************************")
+            minha_galeria.innerHTML += `
+            <div class="meuQuiz meuQuiz${i + 1}">
+                <img src="${res.data.image}"/>
+                <p>${res.data.title}</p>
+            </div>
+            `
+        })
+    }
+}
+
+atualizar_seus_quizes()
 //scripts thiago a baixo
 
 /*function info_basica_quizz() {
