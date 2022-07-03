@@ -1,3 +1,6 @@
+// Globais israel 
+ 
+let quantidadeNivel
 
 //scripts thiago a baixo
 
@@ -45,19 +48,15 @@ function crie_perguntas_quizz(){
         }
     }
 
-    /*validação do título */  
+  // validação do título  
 
 }
    
 
-botao_criar_niveis.addEventListener("click", crie_perguntas_quizz)
+
 
 
 /* tela Crie suas perguntas */
-
-
-
-
 
 
 /****************************************************************************************************/
@@ -65,23 +64,23 @@ botao_criar_niveis.addEventListener("click", crie_perguntas_quizz)
 //scripts israel a baixo
 
 //função slide niveis 
-//botao_criar_Nivel.addEventListener("click", info_basica_Nivel)
-
 function editaNivel(elemento) {
     elemento.parentNode.classList.toggle('toggle')
     elemento.parentNode.querySelector('.caixaNivel').classList.toggle('opacidade')
     elemento.parentNode.querySelector('.buttonEditar').classList.toggle('desligado')
 }
 
+//função slide perguntas
 function editaPergunta(elemento) {
     elemento.parentNode.classList.toggle('toggle')
     elemento.parentNode.querySelector('.pergunta1').classList.toggle('opacidade')
     elemento.parentNode.querySelector('.buttonEditar').classList.toggle('desligado')
 }
 
-let botao_criar_Pergunta = document.querySelector(".prmeiraParte .botao1")
+//funcao renderiza perguntas
 function  renderizaPergunta(){
-    console.log('passou pergunta')
+    quantidadeNivel = document.querySelector('.nivelQuiz').value
+    console.log(quantidadeNivel)
     quantidadePergunta = document.querySelector('.perguntasQuiz').value
     document.querySelector('.perguntas').innerHTML = ""
     for (let i = 0; i < quantidadePergunta; i++) {
@@ -157,17 +156,13 @@ function  renderizaPergunta(){
         document.querySelector('.perguntas').innerHTML += template_caixaPergunta
     }
 }
-botao_criar_pergunta.addEventListener("click", renderiza)
+ //botao 1 ativa redenre perguntas       
+ botao_criar_pergunta.addEventListener("click", renderizaPergunta)
 
-function renderiza(){
-    renderizaPergunta()
-    renderizaNivel() 
-}
-
-// função cria quantidade de niveis passadas 
-function renderizaNivel(elemento) {
-    quantidadeNivel = document.querySelector('.nivelQuiz').value
+//funcao renderiza perguntas
+function renderizaNivel() {
     document.querySelector('.niveis').innerHTML = ""
+    console.log("passou pro render nivel")
     console.log(quantidadeNivel)
     for(let i = 0; i < quantidadeNivel; i++){   
        newNivel = i + 1
@@ -204,6 +199,13 @@ function renderizaNivel(elemento) {
         document.querySelector('.niveis').innerHTML += template_caixaNivel
     }
 }
+
+ //botao  ativa redenre niveis      
+botao_criar_niveis.addEventListener("click", renderizaNivel)
+
+
+// função cria quantidade de niveis passadas 
+
 
 //tratamento de paramentros 
 
