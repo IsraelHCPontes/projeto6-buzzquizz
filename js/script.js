@@ -1,11 +1,18 @@
-
-//scripts thiago a baixo
+// Globais israel 
+ 
+let quantidadeNivel
 
 let botao_criar_pergunta = document.querySelector(".primeiraParte").querySelector("button") 
    
 let botao_criar_niveis = document.querySelector(".segundaParte").querySelector("button")
-   
-function info_basica_quizz() {
+
+let botao_voltar_home = document.querySelector(".quartaParte").querySelector(".botao5") 
+
+let botao_criar_quizz = document.querySelector(".primeiraTela").querySelector(".botaoCriarQuizz") 
+
+//scripts thiago a baixo
+
+/*function info_basica_quizz() {
    
     const titulo_info_basica_quizz = document.querySelector(".informacaoDoQuiz").querySelector(".tituloQuiz").value
     const caracteres = titulo_info_basica_quizz.split("")
@@ -26,15 +33,12 @@ function info_basica_quizz() {
     } catch(err) {
         alert("A URL da imagem esta incorreta")
     }
-}
-
-botao_criar_pergunta.addEventListener("click", info_basica_quizz)
-
+}*/
 
 /* tela Crie suas perguntas */
 
-function crie_perguntas_quizz(){
-    /*validação do título */
+/*function crie_perguntas_quizz(){
+    /*validação do título 
     
     const titulo_perguntas = document.querySelectorAll(".textoDaPergunta")
     for(let i = 0; i < titulo_perguntas.length; i++){
@@ -45,13 +49,10 @@ function crie_perguntas_quizz(){
         }
     }
 
-    /*validação do título */  
+  // validação do título  
 
-}
+}*/
    
-
-botao_criar_niveis.addEventListener("click", crie_perguntas_quizz)
-
 
 /* tela Crie suas perguntas */
 
@@ -163,28 +164,35 @@ atualizar_seus_quizes()
 //scripts israel a baixo
 
 //função slide niveis 
-//botao_criar_Nivel.addEventListener("click", info_basica_Nivel)
-
 function editaNivel(elemento) {
-    elemento.parentNode.classList.toggle('toggleNivel')
+    elemento.parentNode.classList.toggle('toggle')
     elemento.parentNode.querySelector('.caixaNivel').classList.toggle('opacidade')
     elemento.parentNode.querySelector('.buttonEditar').classList.toggle('desligado')
 }
 
-let botao_criar_Pergunta = document.querySelector(".prmeiraParte .botao1")
+//função slide perguntas
+function editaPergunta(elemento) {
+    elemento.parentNode.classList.toggle('toggle')
+    elemento.parentNode.querySelector('.pergunta1').classList.toggle('opacidade')
+    elemento.parentNode.querySelector('.buttonEditar').classList.toggle('desligado')
+}
+
+//funcao renderiza perguntas
 function  renderizaPergunta(){
-    console.log('passou pergunta')
+    document.querySelector('.primeiraParte').classList.add('desligado')
+    document.querySelector('.segundaParte').classList.remove('desligado')
+    quantidadeNivel = document.querySelector('.nivelQuiz').value
+    console.log(quantidadeNivel)
     quantidadePergunta = document.querySelector('.perguntasQuiz').value
     document.querySelector('.perguntas').innerHTML = ""
     for (let i = 0; i < quantidadePergunta; i++) {
         newPergunta = i + 1
         template_caixaPergunta = ` 
-        <div class="caixa1">
+        <div class="containerPerguntas toggle">
+        <div class="topCaixas" onclick="editaPergunta(this)" > </div>
+        <h1 class="numeroPergunta">Pergunta ${newPergunta}</h1>
+        <img class="buttonEditar" src="./images/img1.svg"/>
         <div class="pergunta1">
-            <div class="pergunta01">
-            <h1>Pergunta ${newPergunta}</h1>
-            <img src="./images/img1.svg"/>
-            </div>
             <!--Fecha caixa pergunta 01-->
             <input
                 class="textoDaPergunta"
@@ -196,6 +204,55 @@ function  renderizaPergunta(){
                 type="text"
                 placeholder="Cor de fundo da pergunta"
             />
+         <!--Fecha caixa pergunta 1-->
+            <div class="respostaCorreta ">
+                <h1>Resposta Correta</h1>
+                <input
+                    class="RespostaCorreta"
+                    type="text"
+                    placeholder="Resposta Correta"
+                />
+                <input
+                    class="urlDaImagem"
+                    type="text"
+                    placeholder="URL da imagem"
+                />
+            </div>
+            <!--Fecha caixa Resposta Correta-->
+            <div class="respostasIncorretas ">
+                <h1>Respostas incorretas</h1>
+                <input
+                    class="respostaIncorreta"
+                    type="text"
+                    placeholder="Resposta incorreta 1"
+                />
+                <input
+                    class="urlDaImagem"
+                    type="text"
+                    placeholder="URL da imagem 1"
+                />
+                <input
+                    class="respostaIncorreta"
+                    type="text"
+                    placeholder="Resposta incorreta 2"
+                />
+                <input
+                    class="urlDaImagem"
+                    type="text"
+                    placeholder="URL da imagem 2"
+                />
+                <input
+                    class="respostaIncorreta"
+                    type="text"
+                    placeholder="Resposta incorreta 3"
+                />
+                <input
+                    class="urlDaImagem"
+                    type="text"
+                    placeholder="URL da imagem 3"
+                />
+            </div>
+            <!--Fecha caixa Respostas Incorretas-->
         </div>
         <!--Fecha caixa pergunta 1-->
 
@@ -253,7 +310,8 @@ function  renderizaPergunta(){
         document.querySelector('.perguntas').innerHTML += template_caixaPergunta
     }
 }
-botao_criar_pergunta.addEventListener("click", renderiza)
+ //botao 1 ativa redenriza perguntas       
+ botao_criar_pergunta.addEventListener("click", renderizaPergunta)
 
 function renderiza(){
     renderizaPergunta()
@@ -267,7 +325,7 @@ function renderizaNivel(elemento) {
     for(let i = 0; i < quantidadeNivel; i++){   
        newNivel = i + 1
        template_caixaNivel = ` 
-           <div class="container toggleNivel">
+           <div class="container toggle">
                        <div class="topCaixas" onclick="editaNivel(this)" ></div>
                        <img class="buttonEditar" src="./images/img1.svg">
                        <h1>Nível ${newNivel}</h1>
@@ -300,7 +358,10 @@ function renderizaNivel(elemento) {
     }
 }
 
-//tratamento de paramentros 
+ //botao  ativa redenre niveis      
+botao_criar_niveis.addEventListener("click", renderizaNivel)
+
+
 
 let botao_finalizar_quizz = document.querySelector(".terceiraParte .botaoNivel")
 
@@ -329,4 +390,16 @@ function info_basica_Nivel() {
 botao_finalizar_quizz.addEventListener("click", info_basica_Nivel)
    
 
- 
+function voltar_home(){
+    document.querySelector('.quartaParte').classList.add('desligado')
+    document.querySelector('.primeiraTela').classList.remove('desligado')
+}
+botao_voltar_home.addEventListener("click", voltar_home)
+
+
+function cria_quizzes(){
+    document.querySelector('.primeiraTela').classList.add('desligado')
+    document.querySelector('.primeiraParte').classList.remove('desligado')
+}
+
+botao_criar_quizz.addEventListener("click", cria_quizzes)
