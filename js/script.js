@@ -12,6 +12,8 @@ let botao_criar_quizz = document.querySelector(".primeiraTela").querySelector(".
 
 let botao_finalizar_quizz = document.querySelector(".botaoNivel")
 
+atualizar_todos_quizzes()
+
 const quizes_usuarios = JSON.parse(localStorage.getItem("quizes_usuarios"))
 
 const div_criar_quizz = document.querySelector(".criarQuiz")
@@ -25,8 +27,18 @@ bolinha_criar_quizzes.addEventListener("click", ()=>{
     document.querySelector(".primeiraParte").classList.remove("desligado")
 })
 
+const btn_cria_quizz = document.querySelector(".botaoCriarQuizz")
+
+btn_cria_quizz.addEventListener("click", ()=>{
+    // primeiraTela tem que sumir
+    document.querySelector(".primeiraTela").classList.add("desligado")
+    // primeiraParte tem que aparecer
+    document.querySelector(".primeiraParte").classList.remove("desligado")
+})
+
 if(quizes_usuarios.length !== 0){
     div_criar_quizz.classList.add("desligado")
+    atualizar_seus_quizes()
 }
 
 function enviaQuizz(){
@@ -132,13 +144,14 @@ function atualizar_seus_quizes(){
     }
 }
 
-atualizar_seus_quizes()
+
 
 function atualizar_todos_quizzes(){
     let galeria = document.querySelector(".galeria")
     const promessa = axios.get('https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes')
     promessa.then((res)=>{
      let quizzes = res.data
+        console.log(res)
        // console.log(quizzes[])
         //let img = quizzes[0].img
             
@@ -162,8 +175,11 @@ function atualizar_todos_quizzes(){
             }          
         }
     })
+    
 }
-atualizar_todos_quizzes()
+
+
+
 /****************************************************************************************************/
 
 //scripts israel a baixo
@@ -319,7 +335,7 @@ botao_criar_niveis.addEventListener("click", renderizaNivel)
 // let botao_finalizar_quizz = document.querySelector(".terceiraParte .botaoNivel")
 //tratamento de paramentros 
 
-/*
+
 function info_basica_Nivel() {
     document.querySelector('.terceiraParte').classList.add('desligado')
     document.querySelector('.quartaParte').classList.remove('desligado')
@@ -340,7 +356,7 @@ function info_basica_Nivel() {
             }
     }
           
-}*/
+}
 /*botao_finalizar_quizz.addEventListener("click", info_basica_Nivel)*/
    
 

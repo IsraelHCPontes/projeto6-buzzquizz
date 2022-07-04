@@ -125,10 +125,6 @@ h1 {
     line-height: 45px;
 }
 
-input {
-    margin-bottom: 15px;
-}
-
 .pergunta01,
 .pergunta02,
 .pergunta03 {
@@ -156,19 +152,26 @@ input {
     color: #FFF5F4;
     margin-bottom: 50px;
     cursor: pointer;
-    z-index: 2;
 }
 
 .quizz {
+    width: 500px;
+    height: 266px;
     margin-top: 40px;
     font-size: 23px;
     color: white;
+    position: relative;
 }
 
-.quizz > h2 {
+.quizz h2 {
     position: absolute;
-    top: 420px;
-    left: 450px;
+    bottom: 20px;
+    left: 25px;
+}
+
+.quizz img {
+    width: 500px;
+    height: 266px;
 }
 
 .botao4, .botao5 {
@@ -197,9 +200,8 @@ input {
     cursor: pointer;
 }
 
+
 /*css israel abaixo*/
-
-
 
 .terceiraParte {
     margin-top: 140px;
@@ -225,6 +227,7 @@ input {
     padding: 0 20px;
     transition: all 0.05s ease;
 }
+
 .containerPerguntas {
     width: 600px;
     height: 825px;
@@ -285,9 +288,6 @@ input {
     height: 74px;
 }
 
-
-
-
 .toggle img{
     margin-right: 17px;
 }
@@ -340,20 +340,12 @@ input {
     cursor: pointer;
 }
 
-.quizz {
-    width: 500px;
-    height: 266px;
-    margin-top: 40px;
-    font-size: 23px;
-    color: white;
-    position: relative;
+
+.opacidade {
+    opacity: 1;
 }
 
-.quizz h2 {
-    position: absolute;
-    top: 210px;
-    left: 20px;
-}
+/*css israel finalizado*/
 
 .botao4, .botao5 {
     width: 221px;
@@ -380,10 +372,6 @@ input {
     color: #818181;
 }
 
-.opacidade {
-    opacity: 1;
-}
-
 .desligado {
     display: none;
 }
@@ -406,5 +394,92 @@ input {
         position: absolute;
         top: 420px;
         left: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .informacaoDoQuiz {
+        width: 480px;
+        height: 256px;
+    }
+    
+    input {
+        width: 454px;
+        height: 46px;
+    }
+
+    .botao1 {
+        width: 335px;
+        font-size: 19px;
+    }
+
+    .quizz {
+        width: 480px;
+    }
+
+    .quizz img {
+        width: 480px;
+    }
+}
+
+@media (max-width: 414px) {
+    .informacaoDoQuiz {
+        width: 414px;
+        height: 256px;
+    }
+    
+    input {
+        width: 378px;
+        height: 46px;
+    }
+
+    .botao1 {
+        width: 335px;
+        font-size: 19px;
+    }
+
+    .quizz {
+        width: 400px;
+    }
+
+    .quizz img {
+        width: 400px;
+    }
+
+    .quizz h2 {
+        position: absolute;
+        bottom: 40px;
+        left: 25px;
+    }
+}
+
+@media (max-width: 375px) {
+    .informacaoDoQuiz {
+        width: 375px;
+        height: 256px;
+    }
+
+    input {
+        width: 375px;
+        height: 46px;
+    }
+
+    .botao1 {
+        width: 324px;
+        font-size: 18px;
+    }
+
+    .quizz {
+        width: 340px;
+    }
+
+    .quizz img {
+        width: 340px;
+    }
+
+    .quizz h2 {
+        position: absolute;
+        bottom: 60px;
+        left: 25px;
     }
 }
