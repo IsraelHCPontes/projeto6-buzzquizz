@@ -10,9 +10,11 @@ let botao_voltar_home = document.querySelector(".quartaParte").querySelector(".b
 
 let botao_criar_quizz = document.querySelector(".primeiraTela").querySelector(".botaoCriarQuizz") 
 
+let botao_finalizar_quizz = document.querySelector(".botaoNivel")
+
 function enviaQuizz(){
-    let titulo, cor_de_fundo, resposta_correta, url_img, resposta_incorreta
-    const caixa1 = document.querySelectorAll(".caixa1")
+    // let titulo, cor_de_fundo, resposta_correta, url_img, resposta_incorreta
+    const caixa1 = document.querySelectorAll(".containerPerguntas")
     const obj = {
         title: document.querySelector(".tituloQuiz").value,
         image: document.querySelector(".imagemQuiz").value,
@@ -24,7 +26,7 @@ function enviaQuizz(){
         const texto_pergunta = element.querySelector(".textoDaPergunta").value
         const cor_fundo = element.querySelector(".corDoFundo").value
         const resp_correta = element.querySelector(".RespostaCorreta").value
-        const url_img_correta = element.querySelector(".urlDaImagemCorreta").value
+        const url_img_correta = element.querySelector(".urlDaImagemCorreta").value // falar para o israel alterar no dele
         const obj_pergunta = {
             title: texto_pergunta,
 			color: cor_fundo,
@@ -83,8 +85,12 @@ function enviaQuizz(){
         }
         
     })
-    
+
+    document.querySelector('.terceiraParte').classList.add('desligado')
+    document.querySelector('.quartaParte').classList.remove('desligado')
 }
+
+botao_finalizar_quizz.addEventListener("click", enviaQuizz)
 
 /*função para enviar o quiz pro servidor */
 
@@ -110,7 +116,6 @@ function atualizar_seus_quizes(){
 }
 
 atualizar_seus_quizes()
-
 /****************************************************************************************************/
 
 //scripts israel a baixo
@@ -126,7 +131,7 @@ function editaNivel(elemento) {
 //função slide perguntas
 function editaPergunta(elemento) {
     elemento.parentNode.classList.toggle('toggle')
-       elemento.parentNode.querySelector('.pergunta1').classList.toggle('opacidade')
+    elemento.parentNode.querySelector('.pergunta1').classList.toggle('opacidade')
     elemento.parentNode.querySelector('.buttonEditar').classList.toggle('desligado')
     elemento.parentNode.querySelector('.pergunta1').classList.toggle('recolhe')
 }
@@ -167,7 +172,7 @@ function  renderizaPergunta(){
                     placeholder="Resposta Correta"
                 />
                 <input
-                    class="urlDaImagem"
+                    class="urlDaImagemCorreta"
                     type="text"
                     placeholder="URL da imagem"
                 />
@@ -261,7 +266,7 @@ function renderizaNivel() {
  //botao  ativa redenre niveis      
 botao_criar_niveis.addEventListener("click", renderizaNivel)
 
-let botao_finalizar_quizz = document.querySelector(".terceiraParte .botaoNivel")
+
 //tratamento de paramentros 
 function info_basica_Nivel() {
     document.querySelector('.terceiraParte').classList.add('desligado')

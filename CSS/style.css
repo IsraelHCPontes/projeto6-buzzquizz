@@ -315,7 +315,6 @@ input {
 
 
 .topCaixas{
-    
     top: 0;
     height: 70px;
     width: 600px;
@@ -323,6 +322,7 @@ input {
     transition: all 1s ease-in-out;
     display: initial;
     z-index: 1;
+    cursor: pointer;
 }
 
 .botaoNivel {
