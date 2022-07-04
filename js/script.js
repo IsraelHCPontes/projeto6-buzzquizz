@@ -12,6 +12,23 @@ let botao_criar_quizz = document.querySelector(".primeiraTela").querySelector(".
 
 let botao_finalizar_quizz = document.querySelector(".botaoNivel")
 
+const quizes_usuarios = JSON.parse(localStorage.getItem("quizes_usuarios"))
+
+const div_criar_quizz = document.querySelector(".criarQuiz")
+
+const bolinha_criar_quizzes = document.querySelector(".titulosSeusQuizzes h1")
+
+bolinha_criar_quizzes.addEventListener("click", ()=>{
+    // primeiraTela tem que sumir
+    document.querySelector(".primeiraTela").classList.add("desligado")
+    // primeiraParte tem que aparecer
+    document.querySelector(".primeiraParte").classList.remove("desligado")
+})
+
+if(quizes_usuarios.length !== 0){
+    div_criar_quizz.classList.add("desligado")
+}
+
 function enviaQuizz(){
     // let titulo, cor_de_fundo, resposta_correta, url_img, resposta_incorreta
     const caixa1 = document.querySelectorAll(".containerPerguntas")
@@ -116,53 +133,37 @@ function atualizar_seus_quizes(){
 }
 
 atualizar_seus_quizes()
-//scripts thiago a baixo
 
-/*function info_basica_quizz() {
-   
-    const titulo_info_basica_quizz = document.querySelector(".informacaoDoQuiz").querySelector(".tituloQuiz").value
-    const caracteres = titulo_info_basica_quizz.split("")
-           
-    const quant_niveis = document.querySelector(".informacaoDoQuiz").querySelector(".nivelQuiz").value
+function atualizar_todos_quizzes(){
+    let galeria = document.querySelector(".galeria")
+    const promessa = axios.get('https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes')
+    promessa.then((res)=>{
+     let quizzes = res.data
+       // console.log(quizzes[])
+        //let img = quizzes[0].img
+            
+
+        for(let i = 0; i < quizzes.length; i++){
+            let img = quizzes[i].image
+            let img_esplit = img.split("")
+            let extenImg = ''
         
-    const input_url = document.querySelector(".informacaoDoQuiz").querySelector(".imagemQuiz").value
-           
-    const quant_perg = document.querySelector(".informacaoDoQuiz").querySelector(".perguntasQuiz").value
-           
-   
-    if(caracteres.length < 20 || caracteres.length > 65 || quant_perg < 3 || quant_niveis < 2){
-        alert("preencher os dados corretamente.")
-    }
-
-    try {
-        let url = new URL(input_url)
-    } catch(err) {
-        alert("A URL da imagem esta incorreta")
-    }
-}*/
-
-/* tela Crie suas perguntas */
-
-/*function crie_perguntas_quizz(){
-    /*validação do título 
-    
-    const titulo_perguntas = document.querySelectorAll(".textoDaPergunta")
-    for(let i = 0; i < titulo_perguntas.length; i++){
-        const titulo = titulo_perguntas[i].value
-        const caracteres1 = titulo.split("")
-        if(caracteres1.length < 20){
-            alert("preencher os dados corretamente.")
+            for(let i = 4; i > 0; i--){
+                extenImg += img_esplit[img_esplit.length - i]
+            }
+            if(extenImg === '.jpg' ||  extenImg ==='.png' || extenImg ==='.gif' || extenImg ==='.svg'){
+                console.log('passou pro render')
+                galeria.innerHTML+=`
+                <div class="quiz1">
+                    <img src="${quizzes[i].image}"/>
+                    <p>${quizzes[i].title}</p>
+                </div>\
+                ` 
+            }          
         }
-    }
-
-  // validação do título  
-
-}*/
-   
-
-/* tela Crie suas perguntas */
-
-
+    })
+}
+atualizar_todos_quizzes()
 /****************************************************************************************************/
 
 //scripts israel a baixo
@@ -170,6 +171,7 @@ atualizar_seus_quizes()
 //função slide niveis 
 function editaNivel(elemento) {
     elemento.parentNode.classList.toggle('toggle')
+    
     elemento.parentNode.querySelector('.caixaNivel').classList.toggle('opacidade')
     elemento.parentNode.querySelector('.buttonEditar').classList.toggle('desligado')
 }
@@ -179,6 +181,7 @@ function editaPergunta(elemento) {
     elemento.parentNode.classList.toggle('toggle')
     elemento.parentNode.querySelector('.pergunta1').classList.toggle('opacidade')
     elemento.parentNode.querySelector('.buttonEditar').classList.toggle('desligado')
+    elemento.parentNode.querySelector('.pergunta1').classList.toggle('recolhe')
 }
 
 //funcao renderiza perguntas
@@ -196,7 +199,7 @@ function  renderizaPergunta(){
         <div class="topCaixas" onclick="editaPergunta(this)" > </div>
         <h1 class="numeroPergunta">Pergunta ${newPergunta}</h1>
         <img class="buttonEditar" src="./images/img1.svg"/>
-        <div class="pergunta1">
+        <div class="pergunta1 recolhe">
             <!--Fecha caixa pergunta 01-->
             <input
                 class="textoDaPergunta"
