@@ -116,6 +116,37 @@ function atualizar_seus_quizes(){
 }
 
 atualizar_seus_quizes()
+
+function atualizar_todos_quizzes(){
+    let galeria = document.querySelector(".galeria")
+    const promessa = axios.get('https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes')
+    promessa.then((res)=>{
+     let quizzes = res.data
+       // console.log(quizzes[])
+        //let img = quizzes[0].img
+            
+
+        for(let i = 0; i < quizzes.length; i++){
+            let img = quizzes[i].image
+            let img_esplit = img.split("")
+            let extenImg = ''
+        
+            for(let i = 4; i > 0; i--){
+                extenImg += img_esplit[img_esplit.length - i]
+            }
+            if(extenImg === '.jpg' ||  extenImg ==='.png' || extenImg ==='.gif' || extenImg ==='.svg'){
+                console.log('passou pro render')
+                galeria.innerHTML+=`
+                <div class="quiz${i+1}">
+                    <img src="${quizzes[i].image}"/>
+                    <p>${quizzes[i].title}</p>
+                </div>\
+                ` 
+            }          
+        }
+    })
+}
+atualizar_todos_quizzes()
 /****************************************************************************************************/
 
 //scripts israel a baixo
